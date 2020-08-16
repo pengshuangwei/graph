@@ -68,13 +68,13 @@ void InsertEdge(LGraph, Edge E) {
 	NewNode = (PtrToAdjVNode)malloc(sizeof(AdjVNode));
 	NewNode->Adjv = E->V2;
 	NewNode->Weight = E->Weight;
-	NewNode->Next = G[E->V1].FirstEdge = NewNode;
+	NewNode->Next = Graph->G[E->V1].FirstEdge;
 	Graph->G[E->V1].FirstEdge = NewNode;
 	//若为无向图，还要插入<V2,V1>
 	NewNode = (PtrToAdjVNode)malloc(sizeof(AdjVNode));
 	NewNode->Adjv = E->V1;
 	NewNode->Weight = E->Weight;
-	NewNode->Next = G[E->V2].FirstEdge = NewNode;
+	NewNode->Next = Graph->G[E->V2].FirstEdge ;
 	Graph->G[E->V2].FirstEdge = NewNode;
 
 }
